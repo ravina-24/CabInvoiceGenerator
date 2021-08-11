@@ -118,6 +118,9 @@ namespace CabInvoiceGeneratorTest1
             Assert.AreEqual(expectedSummary.GetType(), summary.GetType());
         }
         #endregion Permium ride type
+
+
+
     }
 }
 
