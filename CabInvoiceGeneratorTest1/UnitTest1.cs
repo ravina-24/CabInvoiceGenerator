@@ -1,10 +1,8 @@
+using CabInvoiceGenerator1;
 using NUnit.Framework;
 
-using CabInvoiceGenerator1;
-
-namespace CabInvoiceGeneratorTest1
+namespace CabInvoiceGeneratorTest
 {
-
     public class Tests
     {
         InvoiceGenerator invoiceGenerator = null;
@@ -43,7 +41,6 @@ namespace CabInvoiceGeneratorTest1
             invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
             Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 5), new Ride(4.0, 10) };
             InvoiceSummary summary = invoiceGenerator.CalculateFare(rides);
-           
             int numOfRides = summary.numberOfRides;
             double totalFare = summary.totalFare;
             double avgFare = summary.averageFare;
@@ -60,8 +57,8 @@ namespace CabInvoiceGeneratorTest1
         {
             invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
             Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 5), new Ride(4.0, 10) };
-            rideRepository.AddRide("Ravina", rides);
-            InvoiceSummary summary = invoiceGenerator.CalculateFare(rideRepository.getRides("Ravina"));
+            rideRepository.AddRide("Shantanu", rides);
+            InvoiceSummary summary = invoiceGenerator.CalculateFare(rideRepository.getRides("Shantanu"));
             InvoiceSummary expectedSummary = new InvoiceSummary(3, 81.0);
             Assert.AreEqual(expectedSummary.GetType(), summary.GetType());
         }
@@ -95,7 +92,6 @@ namespace CabInvoiceGeneratorTest1
             invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
             Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 5) };
             InvoiceSummary summary = invoiceGenerator.CalculateFare(rides);
-            
             int numOfRides = summary.numberOfRides;
             double totalFare = summary.totalFare;
             double avgFare = summary.averageFare;
@@ -112,14 +108,11 @@ namespace CabInvoiceGeneratorTest1
         {
             invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
             Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 5) };
-            rideRepository.AddRide("Ravina", rides);
-            InvoiceSummary summary = invoiceGenerator.CalculateFare(rideRepository.getRides("Ravina"));
+            rideRepository.AddRide("Shantanu", rides);
+            InvoiceSummary summary = invoiceGenerator.CalculateFare(rideRepository.getRides("Shantanu"));
             InvoiceSummary expectedSummary = new InvoiceSummary(2, 81.0);
             Assert.AreEqual(expectedSummary.GetType(), summary.GetType());
         }
         #endregion Permium ride type
-
-
     }
 }
-
