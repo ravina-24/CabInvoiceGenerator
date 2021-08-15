@@ -57,8 +57,8 @@ namespace CabInvoiceGeneratorTest
         {
             invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
             Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 5), new Ride(4.0, 10) };
-            rideRepository.AddRide("Shantanu", rides);
-            InvoiceSummary summary = invoiceGenerator.CalculateFare(rideRepository.getRides("Shantanu"));
+            rideRepository.AddRide("Ravina", rides);
+            InvoiceSummary summary = invoiceGenerator.CalculateFare(rideRepository.getRides("Ravina"));
             InvoiceSummary expectedSummary = new InvoiceSummary(3, 81.0);
             Assert.AreEqual(expectedSummary.GetType(), summary.GetType());
         }
@@ -108,8 +108,8 @@ namespace CabInvoiceGeneratorTest
         {
             invoiceGenerator = new InvoiceGenerator(RideType.PREMIUM);
             Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 5) };
-            rideRepository.AddRide("Shantanu", rides);
-            InvoiceSummary summary = invoiceGenerator.CalculateFare(rideRepository.getRides("Shantanu"));
+            rideRepository.AddRide("Ravina", rides);
+            InvoiceSummary summary = invoiceGenerator.CalculateFare(rideRepository.getRides("Ravina"));
             InvoiceSummary expectedSummary = new InvoiceSummary(2, 81.0);
             Assert.AreEqual(expectedSummary.GetType(), summary.GetType());
         }
