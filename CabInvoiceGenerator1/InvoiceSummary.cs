@@ -17,20 +17,20 @@ namespace CabInvoiceGenerator1
             this.averageFare = this.totalFare / this.numberOfRides;
         }
 
-        public override bool Equals(object obj)
-        {
-            if (obj == null) return false;
-            if (!(obj is InvoiceSummary)) return false;
-            InvoiceSummary inputObject = (InvoiceSummary)obj;
-            return this.numberOfRides == inputObject.numberOfRides
-                && this.totalFare == inputObject.totalFare
-                && this.averageFare == inputObject.averageFare;
-        }
+        //public override bool Equals(object obj)
+        //{
+        //    if (obj == null) return false;
+        //    if (!(obj is InvoiceSummary)) return false;
+        //    InvoiceSummary inputObject = (InvoiceSummary)obj;
+        //    return this.numberOfRides == inputObject.numberOfRides
+        //        && this.totalFare == inputObject.totalFare
+        //        && this.averageFare == inputObject.averageFare;
+        //}
 
-        public override int GetHashCode()
-        {
-            return this.numberOfRides.GetHashCode() ^ this.totalFare.GetHashCode() ^ this.averageFare.GetHashCode();
-        }
+        //public override int GetHashCode()
+        //{
+        //    return this.numberOfRides.GetHashCode() ^ this.totalFare.GetHashCode() ^ this.averageFare.GetHashCode();
+        //}
     }
 
 
